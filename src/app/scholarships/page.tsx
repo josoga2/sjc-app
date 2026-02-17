@@ -11,35 +11,39 @@ type Scholarship = {
   eligibility: string;
   benefit: string;
   description: string;
+  url: string;
 };
 
 const scholarships: Scholarship[] = [
   {
-    title: "SJC Access Scholarship",
+    title: "Master Mind Scholarships (Study in Flanders)",
     status: "Open",
-    timeline: "Rolling review",
-    eligibility: "Students, trainees, and early-career researchers",
-    benefit: "Participation support and fee waivers for select events",
+    timeline: "See official dates",
+    eligibility: "See official criteria",
+    benefit: "See official benefits",
     description:
-      "Designed to reduce barriers for emerging scientists to join SJC meetings and community programs.",
+      "Government-funded scholarships for outstanding international students pursuing master's programs in Flanders.",
+    url: "https://www.studyinflanders.be/scholarships/master-mind-scholarships",
   },
   {
-    title: "Community Builder Micro-Grant",
-    status: "Opening Soon",
-    timeline: "Seasonal calls",
-    eligibility: "Local journal club organizers and community leads",
-    benefit: "Small grants for hosting SJC-aligned discussions",
+    title: "Study in Korea Scholarships",
+    status: "Open",
+    timeline: "See official dates",
+    eligibility: "See official criteria",
+    benefit: "See official benefits",
     description:
-      "Funding to help run small, local discussion groups that expand the reach of scientific dialogue.",
+      "National scholarship opportunities for international students to study in Korea.",
+    url: "https://www.studyinkorea.go.kr/ko/main.do?message=",
   },
   {
-    title: "Speaker Support Fund",
-    status: "By Invitation",
-    timeline: "Ongoing",
-    eligibility: "Invited presenters and session leads",
-    benefit: "Production support and speaker preparation resources",
+    title: "Eminent Master Programme",
+    status: "Open",
+    timeline: "See official dates",
+    eligibility: "See official criteria",
+    benefit: "See official benefits",
     description:
-      "Support for invited speakers to deliver high-quality sessions and engage the community.",
+      "Joint master's program with important dates and application milestones.",
+    url: "https://eminent-master.eu/important-dates/",
   },
 ];
 
@@ -62,21 +66,15 @@ function ScholarshipCard({ item }: { item: Scholarship }) {
         </span>
       </div>
       <p className="text-sm text-slate-700">{item.description}</p>
-      <div className="flex flex-col gap-2 text-sm">
-        <p>
-          <span className="font-semibold">Timeline:</span> {item.timeline}
-        </p>
-        <p>
-          <span className="font-semibold">Eligibility:</span> {item.eligibility}
-        </p>
-        <p>
-          <span className="font-semibold">Benefit:</span> {item.benefit}
-        </p>
-      </div>
       <div className="mt-auto">
-        <Link href="/contact">
-          <SjcButton type="outline" text="Request Details" />
-        </Link>
+        <a
+          href={item.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center justify-center rounded-md border-2 border-[#185CFF] px-4 py-1 text-sm font-bold text-[#185CFF] transition-colors hover:bg-[#185CFF] hover:text-white"
+        >
+          Visit Scholarship
+        </a>
       </div>
     </div>
   );
@@ -103,23 +101,7 @@ export default function ScholarshipsPage() {
               ))}
             </div>
 
-            <div className="mt-10 w-full rounded-md border border-sky-200 bg-sky-50 p-6">
-              <p className="text-lg font-bold">How It Works</p>
-              <div className="mt-4 grid grid-cols-3 gap-6 text-sm text-slate-700">
-                <div className="rounded-md border border-sky-200 bg-white p-4">
-                  <p className="font-semibold">1. Pick a scholarship</p>
-                  <p>Review eligibility and select the program that fits you.</p>
-                </div>
-                <div className="rounded-md border border-sky-200 bg-white p-4">
-                  <p className="font-semibold">2. Request details</p>
-                  <p>Submit the contact form and share your goals and needs.</p>
-                </div>
-                <div className="rounded-md border border-sky-200 bg-white p-4">
-                  <p className="font-semibold">3. Get a response</p>
-                  <p>We will follow up with next steps and timelines.</p>
-                </div>
-              </div>
-            </div>
+            
           </div>
         </div>
 
