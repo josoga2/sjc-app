@@ -5,14 +5,23 @@ import jersely from './../../public/sliding_images/Jersely.png'
 import jimenez from './../../public/sliding_images/Jimenez.png'
 import oloye from './../../public/sliding_images/Oloye.png'
 import fadipe from './../../public/sliding_images/Fadipe.png'
+import enejoh from './../../public/sliding_images/Enejoh.jpeg'
 
 export const heroImages = [
+  { src: enejoh.src, 
+    alt: "enejoh", 
+    speaker: 'Ojochenemi A. Enejoh', 
+    desc: 'Flavonoid-Rich Chromolaena odorata Extract Modulates Circulating GLP-1 in Wistar Rats: A Computational Assessment of TGR5 Involvement.',
+    date: 'Friday, April 17, 2026',
+    youtube: '#',
+    abstract: 'Chromolaena odorata is a major bio-resource in folkloric treatment of diabetes. In the present study, its anti-diabeticcomponent and underlying mechanism were investigated. A library containing 140 phytocompounds previously characterized from C. odorata was generated and docked (Autodock Vina) into homology models of dipeptidyl peptidase (DPP)-4, Takeda-G-protein-receptor-5 (TGR5), glucagon-like peptide 1 (GLP1) receptor, renal sodium dependent glucose transporter (SGLUT)-1/2 and nucleotide-binding oligomerization domain (NOD) proteins 1&2. GLP-1 gene (RT-PCR) modulation and its release (EIA) by C. odorata were confirmed in vivo. '  
+  },
   { src: fadipe.src, 
-    alt: "michael", 
+    alt: "fadipe", 
     speaker: 'Dr Temitope Fadipe', 
     desc: 'pSeva-based Golden Gate System for the synthesis and assembly of a synthetic operon towards sustainable polyhydroxyalkanoates production',
     date: '20/02/2026',
-    youtube: 'https://youtu.be/1DMk2vVUbWM?si=r3alFgIcUrS-Ias5',
+    youtube: '#',
     abstract: 'pSeva-based Golden Gate System for the synthesis and assembly of a synthetic operon towards sustainable polyhydroxyalkanoates production.'  
   },
   { src: michael.src, 
@@ -20,7 +29,7 @@ export const heroImages = [
     speaker: 'Michael Olufemi', 
     desc: 'Detecting methylation with long read sequencing.',
     date: '19/01/2025',
-    youtube: 'https://youtu.be/1DMk2vVUbWM?si=r3alFgIcUrS-Ias5',
+    youtube: '#',
     abstract: 'Detecting methylation with long read sequencing.'  
   },
   { src: evans.src, 
@@ -36,7 +45,7 @@ export const heroImages = [
     speaker: 'Yakubu Jibira', 
     desc: 'Harnessing Nature’s Pharmacopoeia: Targeting Androgen Excess with Natural Products in Prostate Cancer.',
     date: '14/11/2025',
-    youtube: 'https://youtu.be/1DMk2vVUbWM?si=r3alFgIcUrS-Ias5',
+    youtube: '#',
     abstract: 'Harnessing Nature’s Pharmacopoeia: Targeting Androgen Excess with Natural Products in Prostate Cancer.'  
    },
   { src: jersely.src, 
@@ -44,7 +53,7 @@ export const heroImages = [
     speaker: 'Jersely Chirawurah', 
     desc: 'Advancing Molecular Biosciences and Infectious Disease Diagnosis Through Innovative Approaches.',
     date: '26/04/2025',
-    youtube: 'https://youtu.be/1DMk2vVUbWM?si=r3alFgIcUrS-Ias5',
+    youtube: '#',
     abstract: 'Advancing Molecular Biosciences and Infectious Disease Diagnosis Through Innovative Approaches.'  
    },
   { src: jimenez.src, 
@@ -52,7 +61,7 @@ export const heroImages = [
     speaker: 'Mario González Jiménez (PhD)', 
     desc: 'Prediction of mosquito species and population age structure using mid-infrared spectroscopy and supervised machine learning.',
     date: '30/05/2025',
-    youtube: 'https://youtu.be/1DMk2vVUbWM?si=r3alFgIcUrS-Ias5',
+    youtube: '#',
     abstract: 'Prediction of mosquito species and population age structure using mid-infrared spectroscopy and supervised machine learning.'  
    },
   { src: oloye.src, 
@@ -60,8 +69,7 @@ export const heroImages = [
     speaker: 'Prof Femi Francis Oloye', 
     desc: 'From River to Wastewater: Informing Public Health Through Water Monitoring.',
     date: '12/06/2025',
-    youtube: 'https://youtu.be/1DMk2vVUbWM?si=r3alFgIcUrS-Ias5',
+    youtube: '#',
     abstract: 'From River to Wastewater: Informing Public Health Through Water Monitoring.'  
    },
 ];
-
