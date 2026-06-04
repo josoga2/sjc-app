@@ -19,6 +19,7 @@ export default function AdminPage() {
   const [paperName, setPaperName] = useState("");
   const [abstract, setAbstract] = useState("");
   const [recordingLink, setRecordingLink] = useState("");
+  const [dateAdded, setDateAdded] = useState("");
   const [imageFile, setImageFile] = useState<File | null>(null);
   const [submitting, setSubmitting] = useState(false);
   const [submitState, setSubmitState] = useState<SubmitState>({
@@ -56,6 +57,7 @@ export default function AdminPage() {
     formData.append("paper_name", paperName);
     formData.append("abstract", abstract);
     formData.append("recording_link", recordingLink);
+    formData.append("date_added", dateAdded);
     formData.append("image", imageFile);
 
     setSubmitting(true);
@@ -74,6 +76,7 @@ export default function AdminPage() {
       setPaperName("");
       setAbstract("");
       setRecordingLink("");
+      setDateAdded("");
       setImageFile(null);
       event.currentTarget.reset();
 
@@ -150,6 +153,17 @@ export default function AdminPage() {
                 onChange={(event) => setAbstract(event.target.value)}
                 className="min-h-40 rounded-md border border-slate-200 px-3 py-2 font-normal outline-none focus:border-sky-500"
                 placeholder="Add the session abstract here..."
+                required
+              />
+            </label>
+
+            <label className="flex flex-col gap-2 text-sm font-semibold text-slate-700">
+              Session Date
+              <input
+                type="datetime-local"
+                value={dateAdded}
+                onChange={(event) => setDateAdded(event.target.value)}
+                className="rounded-md border border-slate-200 px-3 py-2 font-normal outline-none focus:border-sky-500"
                 required
               />
             </label>
