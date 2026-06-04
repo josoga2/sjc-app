@@ -7,7 +7,7 @@ export type EventItem = {
   speaker: string;
   desc: string;
   date: string;
-  youtube: string;
+  youtube?: string;
   abstract: string;
 };
 
@@ -63,14 +63,20 @@ function EventCard({ event, variant = "default", badge }: EventCardProps) {
         <p className={`${styles.title} font-bold text-slate-900`}>{event.speaker}</p>
         <p className="text-sm text-slate-600">{event.desc}</p>
         <div className="mt-auto flex flex-wrap items-center gap-3 text-sm">
-          <a
-            className="rounded-full border border-sky-200 bg-sky-50 px-3 py-1 text-xs font-semibold text-sky-700 transition-colors hover:bg-sky-100"
-            target="_blank"
-            rel="noopener noreferrer"
-            href={event.youtube}
-          >
-            Watch Recording
-          </a>
+          {event.youtube ? (
+            <a
+              className="rounded-full border border-sky-200 bg-sky-50 px-3 py-1 text-xs font-semibold text-sky-700 transition-colors hover:bg-sky-100"
+              target="_blank"
+              rel="noopener noreferrer"
+              href={event.youtube}
+            >
+              Watch Recording
+            </a>
+          ) : (
+            <span className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-semibold text-slate-500">
+              Recording Coming Soon
+            </span>
+          )}
           <EventPopup description={event.abstract} />
         </div>
       </div>

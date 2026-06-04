@@ -111,7 +111,7 @@ export default function Home({ id }: { id: string }) {
 
           {/**Features */}
           <div className="mt-20 flex flex-col gap-5 w-full items-center justify-center text-center  py-10 border-t  ">
-            <p className="text-lg font-bold pb-5">Live Conversations with the World's Leading Scientists.</p>
+            <p className="text-lg font-bold pb-5">Live Conversations with the World&apos;s Leading Scientists.</p>
             <p className="text-sm w-1/2">A premier monthly journal club that connects groundbreaking research with a global scientific community. We analyze high-impact research articles directly with the experts behind them.</p>
             <div className="grid w-full grid-cols-3 gap-6 text-start">
               {featureCards.map((feature) => (
@@ -219,7 +219,7 @@ export default function Home({ id }: { id: string }) {
 
         {/**Features */}
         <div className="mt-20 flex flex-col gap-5 w-full items-center justify-center text-center  py-10 border-t  ">
-          <p className="text-lg font-bold pb-5">Live Conversations with the World's Leading Scientists.</p>
+          <p className="text-lg font-bold pb-5">Live Conversations with the World&apos;s Leading Scientists.</p>
           <p className="text-sm w-full">A premier monthly journal club that connects groundbreaking research with a global scientific community. We analyze high-impact research articles directly with the experts behind them.</p>
           <div className="flex flex-col items-start gap-6 justify-center text-start w-full">
             {featureCards.map((feature) => (

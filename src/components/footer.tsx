@@ -1,4 +1,3 @@
-import SjcButton from "@/components/sjc-button";
 import logo from "./../../public/sjc_logo-removebg-preview.png"
 import Image from "next/image";
 import LayoutContainer from "@/components/layout-container";

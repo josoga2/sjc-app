@@ -1,7 +1,5 @@
 import Header from "@/components/header";
 import Footer from "@/components/footer";
-import SjcButton from "@/components/sjc-button";
-import Link from "next/link";
 import LayoutContainer from "@/components/layout-container";
 
 type Scholarship = {

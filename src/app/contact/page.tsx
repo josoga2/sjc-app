@@ -1,6 +1,4 @@
 import Header from "@/components/header";
-import SjcButton from "@/components/sjc-button";
-import {heroImages} from "@/components/keynotes"
 import Footer from "@/components/footer";
 import LayoutContainer from "@/components/layout-container";
 
