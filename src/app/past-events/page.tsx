@@ -3,68 +3,13 @@ import SjcButton from "@/components/sjc-button";
 import Footer from "@/components/footer";
 import Link from "next/link";
 import LayoutContainer from "@/components/layout-container";
-import EventList, { type EventItem } from "@/components/event-list";
-
-type JournalClubSession = {
-  id: number;
-  speaker_name: string;
-  paper_name: string;
-  abstract: string;
-  image: string;
-  image_url: string;
-  recording_link: string;
-  date_added: string;
-};
-
-const SESSIONS_API_URL = "https://api.thehackbio.com/api/journal-club/sessions/";
+import EventList from "@/components/event-list";
+import { getJournalClubEvents } from "@/lib/journal-club";
 
 export const dynamic = "force-dynamic";
 
-function formatSessionDate(dateAdded: string) {
-  const date = new Date(dateAdded);
-
-  if (Number.isNaN(date.getTime())) {
-    return "Date unavailable";
-  }
-
-  return new Intl.DateTimeFormat("en-GB", {
-    dateStyle: "medium",
-    timeZone: "UTC",
-  }).format(date);
-}
-
-function sessionToEvent(session: JournalClubSession): EventItem {
-  return {
-    src: session.image_url || session.image || "/6212545.jpg",
-    alt: session.speaker_name,
-    speaker: session.speaker_name,
-    desc: session.paper_name,
-    date: formatSessionDate(session.date_added),
-    youtube: session.recording_link || undefined,
-    abstract: session.abstract,
-  };
-}
-
-async function getPastEvents(): Promise<EventItem[]> {
-  try {
-    const response = await fetch(SESSIONS_API_URL, {
-      cache: "no-store",
-    });
-
-    if (!response.ok) {
-      return [];
-    }
-
-    const sessions = (await response.json()) as JournalClubSession[];
-
-    return sessions.map(sessionToEvent);
-  } catch {
-    return [];
-  }
-}
-
 export default async function PastEvent() {
-  const events = await getPastEvents();
+  const events = await getJournalClubEvents();
 
   return (
     <main className="w-full">

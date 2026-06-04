@@ -1,12 +1,14 @@
 import SjcButton from "@/components/sjc-button";
 import Header from "@/components/header";
 import { Atom, GraduationCap, HospitalIcon, Microscope } from "lucide-react";
-import {heroImages} from "@/components/keynotes"
 import Footer from "@/components/footer";
 import Link from "next/link";
 import Image from "next/image";
 import LayoutContainer from "@/components/layout-container";
 import EventList from "@/components/event-list";
+import { getJournalClubEvents } from "@/lib/journal-club";
+
+export const dynamic = "force-dynamic";
 
 const featureCards = [
   {
@@ -56,13 +58,16 @@ const communityItems = [
   },
 ];
 
-export default function Home({ id }: { id: string }) {
+export default async function Home() {
+  const journalClubEvents = await getJournalClubEvents();
+  const upcomingEvent = journalClubEvents[0];
+  const pastEventPreview = journalClubEvents.slice(1, 3);
 
   return (
     <main className="w-full">
       <Header />
       <LayoutContainer className="py-10">
-        <div key={id} className="hidden md:flex w-full flex-col md:justify-between">
+        <div className="hidden md:flex w-full flex-col md:justify-between">
           {/*desktop*/}
           <div className="grid w-full grid-cols-2 items-center gap-10  justify-stretch pt-10">
 
@@ -139,21 +144,33 @@ export default function Home({ id }: { id: string }) {
           <div className="mt-20 flex flex-col gap-5 w-full items-center justify-center text-center  py-10 border-t  " id="upcoming-events">
             <p className="text-lg font-bold pb-5">Upcoming Journal Club</p>
             <p className="text-sm w-1/2">A premier monthly journal club that connects groundbreaking research with a global scientific community. We analyze high-impact research articles directly with the experts behind them.</p>
-            <EventList
-              events={[heroImages[0]]}
-              variant="featured"
-              badge="Upcoming"
-              className="grid w-full grid-cols-1 text-start"
-            />
+            {upcomingEvent ? (
+              <EventList
+                events={[upcomingEvent]}
+                variant="featured"
+                badge="Upcoming"
+                className="grid w-full grid-cols-1 text-start"
+              />
+            ) : (
+              <p className="text-sm text-slate-600">
+                Upcoming journal club details are not available right now.
+              </p>
+            )}
           </div>
 
           <div className="mt-20 flex flex-col gap-5 w-full items-center justify-center text-center  py-10 border-t  ">
             <p className="text-lg font-bold pb-5">Our Past Events</p>
             <p className="text-sm w-1/2">Where innovators, creators, and thinkers come together to exchange ideas, spark collaboration, and inspire progress.</p>
-            <EventList
-              events={[heroImages[1], heroImages[2]]}
-              className="grid w-full grid-cols-2 gap-6 text-start"
-            />
+            {pastEventPreview.length > 0 ? (
+              <EventList
+                events={pastEventPreview}
+                className="grid w-full grid-cols-2 gap-6 text-start"
+              />
+            ) : (
+              <p className="text-sm text-slate-600">
+                Past event previews are not available right now.
+              </p>
+            )}
 
             <div className="flex flex-row items-start gap-24 justify-center text-start">
               
@@ -247,21 +264,33 @@ export default function Home({ id }: { id: string }) {
         <div className=" flex flex-col gap-5 w-full items-center justify-center text-center border-t" id="upcoming-events">
           <p className="text-lg font-bold pb-5">Upcoming Journal Club</p>
           <p className="text-sm ">A premier monthly journal club that connects groundbreaking research with a global scientific community. We analyze high-impact research articles directly with the experts behind them.</p>
-          <EventList
-            events={[heroImages[0]]}
-            variant="featured"
-            badge="Upcoming"
-            className="grid w-full grid-cols-1 gap-6 text-start"
-          />
+          {upcomingEvent ? (
+            <EventList
+              events={[upcomingEvent]}
+              variant="featured"
+              badge="Upcoming"
+              className="grid w-full grid-cols-1 gap-6 text-start"
+            />
+          ) : (
+            <p className="text-sm text-slate-600">
+              Upcoming journal club details are not available right now.
+            </p>
+          )}
         </div>
 
         <div className="mt-20 flex flex-col gap-5 w-full items-center justify-center text-center  py-10 border-t  ">
           <p className="text-lg font-bold pb-5">Our Past Events</p>
           <p className="text-sm w-full">Where innovators, creators, and thinkers come together to exchange ideas, spark collaboration, and inspire progress.</p>
-          <EventList
-            events={[heroImages[1], heroImages[2]]}
-            className="grid w-full grid-cols-1 gap-6 text-start"
-          />
+          {pastEventPreview.length > 0 ? (
+            <EventList
+              events={pastEventPreview}
+              className="grid w-full grid-cols-1 gap-6 text-start"
+            />
+          ) : (
+            <p className="text-sm text-slate-600">
+              Past event previews are not available right now.
+            </p>
+          )}
 
           <div className="flex flex-col items-start gap-24 justify-center text-start">
             
